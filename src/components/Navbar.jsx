@@ -1,8 +1,10 @@
 import React from 'react';
 
+import "../styles/Navbar.scss"
+
 const Navbar = () => {
   return (
-    <div>Navbar</div>
+    <div className='title'>Build Me A Resume</div>
   );
 };
 
