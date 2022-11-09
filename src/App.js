@@ -1,14 +1,15 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import { Homepage, Navbar } from "./components";
+import { Homepage, Navbar, BuildResume } from "./components";
 
 function App() {
   return (
     <BrowserRouter>
-      <Navbar />
+      {/* <Navbar /> */}
       <Routes>
         <Route path="/" element={<Homepage />} />
+        <Route path="/build" element={<BuildResume />} />
       </Routes>
     </BrowserRouter>
   );
