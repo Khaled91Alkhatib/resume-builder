@@ -1,8 +1,9 @@
 import React from 'react'
+import BasicInformation from './BasicInformation/BasicInformation';
 
 const BuildResume = () => {
   return (
-    <div>BuildResume</div>
+    <BasicInformation />
   )
 }
 
