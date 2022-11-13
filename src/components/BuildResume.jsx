@@ -1,10 +1,19 @@
-import React from 'react'
+import React from 'react';
 import BasicInformation from './BasicInformation/BasicInformation';
+
+import './BuildResume.scss';
+import resumeImage from "../images/resume1.jpeg";
+
 
 const BuildResume = () => {
   return (
-    <BasicInformation />
-  )
-}
+    <div>
+      <img src={resumeImage} alt="resume" className='resume-image' />
+      <div className='main-build'>
+        <BasicInformation />
+      </div>
+    </div>
+  );
+};
 
-export default BuildResume
+export default BuildResume;
