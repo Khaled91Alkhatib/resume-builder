@@ -1,0 +1,42 @@
+.basic-info {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  // background-color: white;
+
+  .main-basic-info-layout,
+  .header {
+    // background-color: white;
+
+    &.header {
+      font-size: 25px;
+    }
+  }
+
+  .detailed-basic-info {
+    padding: 0.8em 0 0em 0;
+    margin-top: 1em;
+    width: 30em;
+    background: rgba(255, 255, 255, 0.1);
+
+    // background-color: white;
+    border: none;
+    border-bottom: 1px solid grey;
+    outline: none;
+    font-size: 15px;
+  }
+}
+
+.save-button {
+  margin-top: 0.8em;
+  background-color: rgb(66, 66, 255);
+  color: white;
+  padding: 0.7em;
+  width: 150px;
+  border: none;
+  border-radius: 15px;
+
+  &:hover {
+    cursor: pointer;
+  }
+}

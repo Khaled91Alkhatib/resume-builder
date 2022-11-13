@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
+import "./BasicInformation.scss";
+
 const BasicInformation = () => {
 
   const [basicInformation, setBasicInformation] = useState({
@@ -12,25 +14,31 @@ const BasicInformation = () => {
   });
   // console.log(basicInformation)
 
-  const changeFullName = (event) => {
-    setBasicInformation({ ...basicInformation, fullName: event.target.value });
+  const handleChange = (event) => {
+    const { id, value } = event.target;
+    setBasicInformation({ ...basicInformation, [id]: value });
   };
 
-  const changeJobTitle = (event) => {
-    setBasicInformation({ ...basicInformation, jobTitle: event.target.value });
-  };
+  // Another approach to handleChange is this one below but less DRY
+  // const changeFullName = (event) => {
+  //   setBasicInformation({ ...basicInformation, fullName: event.target.value });
+  // };
 
-  const changeEmail = (event) => {
-    setBasicInformation({ ...basicInformation, email: event.target.value });
-  };
+  // const changeJobTitle = (event) => {
+  //   setBasicInformation({ ...basicInformation, jobTitle: event.target.value });
+  // };
 
-  const changeWebsite = (event) => {
-    setBasicInformation({ ...basicInformation, website: event.target.value });
-  };
+  // const changeEmail = (event) => {
+  //   setBasicInformation({ ...basicInformation, email: event.target.value });
+  // };
 
-  const changeLocation = (event) => {
-    setBasicInformation({ ...basicInformation, location: event.target.value });
-  };
+  // const changeWebsite = (event) => {
+  //   setBasicInformation({ ...basicInformation, website: event.target.value });
+  // };
+
+  // const changeLocation = (event) => {
+  //   setBasicInformation({ ...basicInformation, location: event.target.value });
+  // };
 
   const saveInfo = (event) => {
     event.preventDefault();
@@ -48,6 +56,7 @@ const BasicInformation = () => {
         console.log(response.data);
       });
 
+    // This below will delete inputs after clicking submit 
     // setBasicInformation({
     //   fullName: "",
     //   jobTitle: "",
@@ -59,49 +68,67 @@ const BasicInformation = () => {
   };
 
   return (
-    <form onSubmit={saveInfo}>
+    <div className='main-basic-info-layout'>
+      <form className='basic-info' onSubmit={saveInfo}>
+        <div className='header'>Basic Information</div>
 
-      <input
-        type='text'
-        placeholder='Full Name'
-        onChange={changeFullName}
-        value={basicInformation.fullName}
-      />
+        <input
+          className='detailed-basic-info'
+          type='text'
+          placeholder='Full Name'
+          onChange={handleChange}
+          id="fullName"
+          value={basicInformation.fullName}
+          required
+        />
 
-      <input
-        type='text'
-        placeholder='Job Title'
-        onChange={changeJobTitle}
-        value={basicInformation.jobTitle}
-      />
+        <input
+          className='detailed-basic-info'
+          type='text'
+          placeholder='Job Title'
+          onChange={handleChange}
+          id="jobTitle"
+          value={basicInformation.jobTitle}
+        />
 
-      <input
-        type='text'
-        placeholder='Email'
-        onChange={changeEmail}
-        value={basicInformation.email}
-      />
+        <input
+          className='detailed-basic-info'
+          type='text'
+          placeholder='Email'
+          onChange={handleChange}
+          id="email"
+          value={basicInformation.email}
+          required
+        />
 
-      <input
-        type='text'
-        placeholder='Website'
-        onChange={changeWebsite}
-        value={basicInformation.website}
-      />
+        <input
+          className='detailed-basic-info'
+          type='text'
+          placeholder='Website'
+          onChange={handleChange}
+          id="website"
+          value={basicInformation.website}
+        />
 
-      <input
-        type='text'
-        placeholder='Location'
-        onChange={changeLocation}
-        value={basicInformation.location}
-      />
+        <input
+          className='detailed-basic-info'
+          type='text'
+          placeholder='Location'
+          onChange={handleChange}
+          id="location"
+          value={basicInformation.location}
+        />
 
-      <input
-        type='submit'
-        value='Save'
-      />
+        <div>
+          <input
+            type='submit'
+            value='Save and Continue'
+            className='save-button'
+          />
+        </div>
 
-    </form>
+      </form>
+    </div>
   );
 };
 
